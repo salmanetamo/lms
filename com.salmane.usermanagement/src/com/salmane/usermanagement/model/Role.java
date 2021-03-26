@@ -1,8 +1,15 @@
-package model;
+package com.salmane.usermanagement.model;
+
+import java.util.UUID;
 
 public class Role {
     private final String id;
     private final String name;
+
+    public Role(String name) {
+        this.id = UUID.randomUUID().toString();
+        this.name = name;
+    }
 
     public Role(String id, String name) {
         this.id = id;
