@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/com.salmane.app/com.salmane.app.iml" filepath="$PROJECT_DIR$/com.salmane.app/com.salmane.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.salmane.core/com.salmane.core.iml" filepath="$PROJECT_DIR$/com.salmane.core/com.salmane.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.salmane.db/com.salmane.db.iml" filepath="$PROJECT_DIR$/com.salmane.db/com.salmane.db.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.salmane.usermanagement/com.salmane.usermanagement.iml" filepath="$PROJECT_DIR$/com.salmane.usermanagement/com.salmane.usermanagement.iml" />
       <module fileurl="file://$PROJECT_DIR$/lms.iml" filepath="$PROJECT_DIR$/lms.iml" />
     </modules>

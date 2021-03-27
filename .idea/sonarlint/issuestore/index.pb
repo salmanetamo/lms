@@ -21,3 +21,17 @@ z
 Jcom.salmane.core/src/com/salmane/core/persistence/IPersistenceService.java,d\2\d232e3c95bb13cb4b4f9c24e619d641a75d47fc3
 ƒ
 Scom.salmane.usermanagement/src/com/salmane/usermanagement/service/IUserService.java,f\f\ff0b9f4fe758b75639d9930dc9689cb039f4cb8d
+ˆ
+Xcom.salmane.core/src/com/salmane/core/error/exceptions/EntityAlreadyExistsException.java,2\7\27620fe9f8b6f12ebaba12587571bdaabadabebe
+ƒ
+Scom.salmane.core/src/com/salmane/core/error/exceptions/EntityNotFoundException.java,2\8\28a4a3d51109460065d0db9fa703a51a46674618
+‹
+[com.salmane.usermanagement/src/com/salmane/usermanagement/persistence/IUserPersistence.java,4\1\416a850b9889ef5c1aaddd8081440a3f5b5dbff7
+‹
+[com.salmane.usermanagement/src/com/salmane/usermanagement/persistence/IRolePersistence.java,2\7\27c3207f072ecc45744d90ae9b2975b43d71b5a3
+ƒ
+Scom.salmane.usermanagement/src/com/salmane/usermanagement/service/IRoleService.java,0\8\08e6a176ce671a4b42e837620a01808c0fe2ade0
+‚
+Rcom.salmane.usermanagement/src/com/salmane/usermanagement/service/RoleService.java,f\e\fee1c91d0fb855513b19c1770d6fa350a194610e
+‚
+Rcom.salmane.usermanagement/src/com/salmane/usermanagement/service/UserService.java,e\d\ed49bf74a6dbf034922b3096c24b1b81167a3c77
