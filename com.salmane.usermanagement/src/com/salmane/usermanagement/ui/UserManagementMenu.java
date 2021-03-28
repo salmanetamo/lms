@@ -1,8 +1,10 @@
 package com.salmane.usermanagement.ui;
 
 import com.salmane.core.ui.Menu;
+import com.salmane.usermanagement.model.User;
 
 import java.util.List;
+import java.util.function.IntConsumer;
 
 public class UserManagementMenu extends Menu {
 
@@ -10,36 +12,14 @@ public class UserManagementMenu extends Menu {
             List<String> menuOptions,
             String welcomeMessage,
             String exitMessage,
-            String initialPrompt
+            String initialPrompt,
+            IntConsumer processChoice
     ) {
         super(menuOptions, welcomeMessage, exitMessage, initialPrompt, null);
-        this.processChoice = choice -> {
-            switch (choice) {
-                case 0:
-                    print("Back to main menu");
-                    break;
-                case 1:
-                    showListUsers();
-                    break;
-                case 2:
-                    showCreateUser();
-                    break;
-                case 3:
-                    showViewUser();
-                    break;
-                case 4:
-                    showUpdateUser();
-                    break;
-                case 5:
-                    showDeleteUser();
-                    break;
-                default:
-                    print("Invalid choice!");
-            }
-        };
+        this.processChoice = processChoice;
     }
 
-    public UserManagementMenu() {
+    public UserManagementMenu(IntConsumer processChoice) {
         this(
                 List.of(
                         "List users",
@@ -50,52 +30,14 @@ public class UserManagementMenu extends Menu {
                 ),
                 "Welcome to your user management portal",
                 "Back",
-                "What do you want to do?"
+                "What do you want to do?",
+                processChoice
         );
-        this.processChoice = choice -> {
-            switch (choice) {
-                case 0:
-                    print("Back to main menu");
-                    break;
-                case 1:
-                    showListUsers();
-                    break;
-                case 2:
-                    showCreateUser();
-                    break;
-                case 3:
-                    showViewUser();
-                    break;
-                case 4:
-                    showUpdateUser();
-                    break;
-                case 5:
-                    showDeleteUser();
-                    break;
-                default:
-                    print("Invalid choice!");
-            }
-        };
     }
 
-    private void showListUsers() {
-        print("showListUsers");
+    public void displayUsersList(List<User> users) {
+        users.stream()
+                .map(user -> "\t" + user.toString())
+                .forEach(this::print);
     }
-
-    private void showCreateUser() {
-        print("showCreateUser");
-    }
-
-    private void showViewUser() {
-        print("showViewUser");
-    }
-
-    private void showUpdateUser() {
-        print("showUpdateUser");
-    }
-
-    private void showDeleteUser() {
-        print("showDeleteUser");
-    }
-
 }

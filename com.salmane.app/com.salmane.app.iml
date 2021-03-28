@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="com.salmane.usermanagement" />
     <orderEntry type="module" module-name="com.salmane.core" />
+    <orderEntry type="module" module-name="com.salmane.db" />
   </component>
 </module>

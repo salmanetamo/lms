@@ -35,3 +35,9 @@ Scom.salmane.usermanagement/src/com/salmane/usermanagement/service/IRoleService.
 Rcom.salmane.usermanagement/src/com/salmane/usermanagement/service/RoleService.java,f\e\fee1c91d0fb855513b19c1770d6fa350a194610e
 ‚
 Rcom.salmane.usermanagement/src/com/salmane/usermanagement/service/UserService.java,e\d\ed49bf74a6dbf034922b3096c24b1b81167a3c77
+S
+#com.salmane.db/src/module-info.java,e\f\ef37f9cb5b7e2a25ea11202b691ecff3a180abbc
+a
+1com.salmane.db/src/com/salmane/db/Datasource.java,0\d\0dd3bb0d37f57430ab5fc92371b140ecafdbf230
+t
+Dcom.salmane.db/src/com/salmane/db/usermanagement/UserRepository.java,a\7\a7e5c75c82dff1ae576bf02752218f4a5d308a57
