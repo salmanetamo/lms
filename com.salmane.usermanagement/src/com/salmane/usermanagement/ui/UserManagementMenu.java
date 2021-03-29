@@ -4,6 +4,7 @@ import com.salmane.core.ui.Menu;
 import com.salmane.usermanagement.model.User;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.IntConsumer;
 
 public class UserManagementMenu extends Menu {
@@ -36,8 +37,24 @@ public class UserManagementMenu extends Menu {
     }
 
     public void displayUsersList(List<User> users) {
+        AtomicInteger index = new AtomicInteger(1);
         users.stream()
-                .map(user -> "\t" + user.toString())
+                .map(user -> index.getAndIncrement() + " -\t" + user.toString())
                 .forEach(this::print);
     }
+
+    public String askName() {
+        return this.promptString(
+                "Enter name below: ",
+                name -> !name.isBlank()
+        );
+    }
+
+    public String askEmail() {
+        return this.promptString(
+                "Enter email below: ",
+                email -> !email.isBlank()
+        );
+    }
+
 }

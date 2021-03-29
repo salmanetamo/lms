@@ -3,6 +3,8 @@ package com.salmane.core.ui;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.IntConsumer;
+import java.util.function.IntPredicate;
+import java.util.function.Predicate;
 
 public class Menu {
     protected final Scanner scanner = new Scanner(System.in);
@@ -52,7 +54,31 @@ public class Menu {
         } while (choice != 0);
     }
 
-    protected void print(String text) {
+    public void print(String text) {
         System.out.println(text);
+    }
+
+    protected int promptNumber(String prompt, IntPredicate validation) {
+        int number;
+        do {
+            print(prompt);
+            number = scanner.nextInt();
+            if (!validation.test(number))
+                print("Invalid input");
+        } while (!validation.test(number));
+
+        return number;
+    }
+
+    protected String promptString(String prompt, Predicate<String> validation) {
+        String string;
+        do {
+            print(prompt);
+            string = scanner.nextLine();
+            if (!validation.test(string))
+                print("Invalid input");
+        } while (!validation.test(string));
+
+        return string;
     }
 }

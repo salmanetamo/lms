@@ -51,7 +51,10 @@ public class UserManagement {
     }
 
     private void showCreateUser() {
-        System.out.print("showCreateUser");
+        String name = this.userManagementMenu.askName();
+        String email = this.userManagementMenu.askEmail();
+        this.userService.create(name, email);
+        this.userManagementMenu.print("User created successfully!");
     }
 
     private void showViewUser() {

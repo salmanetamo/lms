@@ -1,7 +1,9 @@
 
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(ãó¶‡ùÿÿÿÿ8ˆŸÿş†/
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(û…Éìøÿÿÿÿ8€µƒÿ†/
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(ˆüŠ‚úÿÿÿÿ8›Íşş†/
-U	java:S106"9Replace this use of System.out or System.err by a logger.(éÓŒ™8€µƒÿ†/
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(á‹›Òùÿÿÿÿ8€µƒÿ†/
-U	java:S106"9Replace this use of System.out or System.err by a logger.(„ê÷Î8€µƒÿ†/
+O
+java:S1068"4Remove this unused "PERSISTENCE_MODE" private field.(å«’8îô”Ğ‡/
+X	java:S106"9Replace this use of System.out or System.err by a logger.(á‹›Òùÿÿÿÿ8€µƒÿ†/
+X	java:S106"9Replace this use of System.out or System.err by a logger.(û…Éìøÿÿÿÿ8€µƒÿ†/
+S	java:S106"9Replace this use of System.out or System.err by a logger.(éÓŒ™8€µƒÿ†/
+S	java:S106"9Replace this use of System.out or System.err by a logger.(„ê÷Î8€µƒÿ†/
+X	java:S106"9Replace this use of System.out or System.err by a logger.(ãó¶‡ùÿÿÿÿ8ˆŸÿş†/
+X	java:S106"9Replace this use of System.out or System.err by a logger.(ˆüŠ‚úÿÿÿÿ8›Íşş†/

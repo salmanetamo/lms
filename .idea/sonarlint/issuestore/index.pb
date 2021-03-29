@@ -41,3 +41,7 @@ a
 1com.salmane.db/src/com/salmane/db/Datasource.java,0\d\0dd3bb0d37f57430ab5fc92371b140ecafdbf230
 t
 Dcom.salmane.db/src/com/salmane/db/usermanagement/UserRepository.java,a\7\a7e5c75c82dff1ae576bf02752218f4a5d308a57
+a
+1com.salmane.db/src/com/salmane/db/Repository.java,b\7\b72530397ff928f311803720970110a06f0ae69b
+_
+/com.salmane.db/src/com/salmane/db/db.properties,c\6\c6cb0c51c0b34c6986dc5c14d3e5a65db41376d5
