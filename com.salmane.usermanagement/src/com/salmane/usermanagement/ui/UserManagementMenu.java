@@ -57,4 +57,10 @@ public class UserManagementMenu extends Menu {
         );
     }
 
+    public String askId() {
+        return this.promptString(
+                "Enter user id below: ",
+                id -> !id.isBlank() && id.length() > 8
+        );
+    }
 }

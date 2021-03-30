@@ -75,8 +75,9 @@ public class Menu {
         do {
             print(prompt);
             string = scanner.nextLine();
-            if (!validation.test(string))
+            if (!validation.test(string)){
                 print("Invalid input");
+            }
         } while (!validation.test(string));
 
         return string;

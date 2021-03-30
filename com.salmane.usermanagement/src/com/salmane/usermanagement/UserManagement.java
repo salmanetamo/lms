@@ -7,6 +7,7 @@ import com.salmane.usermanagement.service.UserService;
 import com.salmane.usermanagement.ui.UserManagementMenu;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class UserManagement {
     private final UserManagementMenu userManagementMenu = new UserManagementMenu(
@@ -58,14 +59,35 @@ public class UserManagement {
     }
 
     private void showViewUser() {
-        System.out.print("showViewUser");
+        String id = this.userManagementMenu.askId();
+        this.userService.get(id).ifPresentOrElse(
+                user -> this.userManagementMenu.print(user.toString()),
+                () -> this.userManagementMenu.print("User not found!")
+        );
     }
 
     private void showUpdateUser() {
-        System.out.print("showUpdateUser");
+        String id = this.userManagementMenu.askId();
+        AtomicReference<String> newName = new AtomicReference<>("");
+        AtomicReference<String> newEmail = new AtomicReference<>("");
+        this.userService.get(id).ifPresentOrElse(
+                user -> {
+                    newName.set(this.userManagementMenu.askName());
+                    newEmail.set(this.userManagementMenu.askEmail());
+                },
+                () -> this.userManagementMenu.print("User not found!")
+        );
+        boolean updated = this.userService.update(id, new User(newName.get(), newEmail.get()));
+        this.userManagementMenu.print(updated ? "User updated successfully" : "Could not update user");
     }
 
     private void showDeleteUser() {
-        System.out.print("showDeleteUser");
+        String id = this.userManagementMenu.askId();
+        if (this.userService.get(id).isPresent()) {
+            this.userManagementMenu.print("User not found!");
+        } else {
+            boolean deleted = this.userService.delete(id);
+            this.userManagementMenu.print(deleted ? "User deleted successfully" : "Could not delete user");
+        }
     }
 }

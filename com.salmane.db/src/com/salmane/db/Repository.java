@@ -54,7 +54,7 @@ public abstract class Repository {
                     stringBuilder.append(column).append("= ?, ");
                 }
                 stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
-                stringBuilder.append("WHERE ").append(tableAndWhereClauseColumn.get("columnToMatch")).append(" = ?");
+                stringBuilder.append(" WHERE ").append(tableAndWhereClauseColumn.get("columnToMatch")).append(" = ?");
                 stringBuilder.append(";");
                 return stringBuilder.toString();
             };
