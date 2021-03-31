@@ -1,6 +1,5 @@
 
-Z	java:S106A"9Replace this use of System.out or System.err by a logger.(À‹”«ÿÿÿÿÿ8½ô¬Ñ‡/
-U	java:S106E"9Replace this use of System.out or System.err by a logger.(«Åò¦8½ô¬Ñ‡/
-Z	java:S106""9Replace this use of System.out or System.err by a logger.(ãó¶‡ùÿÿÿÿ8ºÝÁÑ‡/
-Z	java:S106="9Replace this use of System.out or System.err by a logger.(·´ÒÍùÿÿÿÿ8½ô¬Ñ‡/
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(ˆüŠ‚úÿÿÿÿ8ºÝÁÑ‡/
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(ˆüŠ‚úÿÿÿÿ8ºÝÁÑ‡/
+r
+java:S1192A"PDefine a constant instead of duplicating this literal "User not found!" 3 times.(ÝÆ¦úúÿÿÿÿ8ìËü¦ˆ/
+Z	java:S106#"9Replace this use of System.out or System.err by a logger.(ãó¶‡ùÿÿÿÿ8ºÝÁÑ‡/

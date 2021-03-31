@@ -101,7 +101,6 @@ public class UserRepository extends Repository implements IUserPersistence {
                 Map.of("tableName", USERS_TABLE, "columnToMatch", USERS_ID_COLUMN),
                 List.of(USERS_EMAIL_COLUMN, USERS_NAME_COLUMN)
         );
-        System.out.println(updateQuery);
         try(PreparedStatement statement = this.datasource.getConnection().prepareStatement(updateQuery)) {
             statement.setString(1, toUpdate.getEmail());
             statement.setString(2, toUpdate.getName());
