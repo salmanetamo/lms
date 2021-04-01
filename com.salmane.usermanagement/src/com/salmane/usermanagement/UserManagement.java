@@ -83,7 +83,7 @@ public class UserManagement {
 
     private void showDeleteUser() {
         String id = this.userManagementMenu.askId();
-        if (this.userService.get(id).isPresent()) {
+        if (this.userService.get(id).isEmpty()) {
             this.userManagementMenu.print("User not found!");
         } else {
             boolean deleted = this.userService.delete(id);

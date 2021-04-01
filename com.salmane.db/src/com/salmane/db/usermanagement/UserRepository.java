@@ -27,8 +27,8 @@ public class UserRepository extends Repository implements IUserPersistence {
     private User resultSetToUser(ResultSet resultSet) throws SQLException {
         return resultSet == null ? null : new User(
                 resultSet.getString(USERS_ID_COLUMN),
-                resultSet.getString(USERS_EMAIL_COLUMN),
-                resultSet.getString(USERS_NAME_COLUMN)
+                resultSet.getString(USERS_NAME_COLUMN),
+                resultSet.getString(USERS_EMAIL_COLUMN)
         );
     }
 
@@ -59,14 +59,9 @@ public class UserRepository extends Repository implements IUserPersistence {
             statement.setString(2, toCreate.getEmail());
             statement.setString(3, toCreate.getName());
 
-            ResultSet resultSet = statement.executeQuery();
-            User user = null;
-            while (resultSet.next()) {
-                user = this.resultSetToUser(resultSet);
-            }
-            if (user == null)
-                throw new SQLException("Error creating user!");
-            return user;
+            statement.executeUpdate();
+
+            return toCreate;
         } catch (SQLException e) {
             e.printStackTrace();
         }
