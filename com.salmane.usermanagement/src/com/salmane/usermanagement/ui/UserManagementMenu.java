@@ -1,6 +1,7 @@
 package com.salmane.usermanagement.ui;
 
 import com.salmane.core.ui.Menu;
+import com.salmane.usermanagement.model.Role;
 import com.salmane.usermanagement.model.User;
 
 import java.util.List;
@@ -27,7 +28,12 @@ public class UserManagementMenu extends Menu {
                         "Create user",
                         "View user",
                         "Update user",
-                        "Delete user\n"
+                        "Delete user",
+                        "List roles",
+                        "Create role",
+                        "View role",
+                        "Update role",
+                        "Delete role\n"
                 ),
                 "Welcome to your user management portal",
                 "Back",
@@ -38,9 +44,13 @@ public class UserManagementMenu extends Menu {
 
     public void displayUsersList(List<User> users) {
         AtomicInteger index = new AtomicInteger(1);
-        users.stream()
-                .map(user -> index.getAndIncrement() + " -\t" + user.toString())
-                .forEach(this::print);
+        if (users.isEmpty()) {
+            this.print("List of users is empty!");
+        } else {
+            users.stream()
+                    .map(user -> index.getAndIncrement() + " -\t" + user.toString())
+                    .forEach(this::print);
+        }
     }
 
     public String askName() {
@@ -62,5 +72,16 @@ public class UserManagementMenu extends Menu {
                 "Enter user id below: ",
                 id -> !id.isBlank() && id.length() > 8
         );
+    }
+
+    public void displayRolesList(List<Role> roles) {
+        AtomicInteger index = new AtomicInteger(1);
+        if (roles.isEmpty()) {
+            this.print("List of roles is empty!");
+        } else {
+            roles.stream()
+                    .map(role -> index.getAndIncrement() + " -\t" + role.toString())
+                    .forEach(this::print);
+        }
     }
 }

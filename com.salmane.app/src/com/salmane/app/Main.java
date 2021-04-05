@@ -2,19 +2,23 @@ package com.salmane.app;
 
 import com.salmane.core.ui.Menu;
 import com.salmane.usermanagement.UserManagement;
+import com.salmane.usermanagement.persistence.IRolePersistence;
 import com.salmane.usermanagement.persistence.IUserPersistence;
 
 import java.util.ServiceLoader;
 
 public class Main {
-    private static final String PERSISTENCE_MODE = "DB"; // Could be file
     private static final UserManagement userManagement;
 
     static {
         IUserPersistence userPersistenceImpl = ServiceLoader.load(IUserPersistence.class)
                 .findFirst()
                 .orElseThrow(() -> new NoClassDefFoundError("No Implementation of IUserPersistence found"));
-        userManagement = new UserManagement(userPersistenceImpl);
+        IRolePersistence rolePersistenceImpl = ServiceLoader.load(IRolePersistence.class)
+                .findFirst()
+                .orElseThrow(() -> new NoClassDefFoundError("No Implementation of IRolePersistence found"));
+
+        userManagement = new UserManagement(userPersistenceImpl, rolePersistenceImpl);
     }
 
     private static final Menu menu = new Menu(

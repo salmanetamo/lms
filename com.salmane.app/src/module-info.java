@@ -3,4 +3,5 @@ module com.salmane.app {
     requires com.salmane.core;
 
     uses com.salmane.usermanagement.persistence.IUserPersistence;
+    uses com.salmane.usermanagement.persistence.IRolePersistence;
 }
