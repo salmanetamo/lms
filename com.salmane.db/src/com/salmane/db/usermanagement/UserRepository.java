@@ -1,6 +1,7 @@
 package com.salmane.db.usermanagement;
 
 import com.salmane.db.Repository;
+import com.salmane.usermanagement.model.Role;
 import com.salmane.usermanagement.model.User;
 import com.salmane.usermanagement.persistence.IUserPersistence;
 
@@ -8,10 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
+import static com.salmane.db.usermanagement.RoleRepository.*;
 
 public class UserRepository extends Repository implements IUserPersistence {
     public static final String USERS_TABLE = "users";
@@ -102,6 +102,7 @@ public class UserRepository extends Repository implements IUserPersistence {
             statement.setString(3, id);
 
             statement.executeUpdate();
+            this.assignRolesToUser(id, toUpdate.getRoles());
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -138,6 +139,21 @@ public class UserRepository extends Repository implements IUserPersistence {
         } catch (SQLException e) {
             System.out.println("Error initializing users table");
             e.printStackTrace();
+        }
+    }
+
+    private void assignRolesToUser(String userId, Set<Role> roles) throws SQLException {
+        String insertQuery = INSERT_INTO_TABLE_QUERY_FUNCTION.apply(
+                USERS_ROLES_TABLE,
+                List.of(USER_ID_COLUMN_USERS_ROLES, ROLE_ID_COLUMN_USERS_ROLES)
+        );
+        for (Role role: roles) {
+            try(PreparedStatement statement = this.datasource.getConnection().prepareStatement(insertQuery)) {
+                statement.setString(1, userId);
+                statement.setString(2, role.getId());
+
+                statement.executeUpdate();
+            }
         }
     }
 }
