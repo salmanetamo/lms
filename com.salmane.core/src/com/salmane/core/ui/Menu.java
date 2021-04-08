@@ -1,5 +1,6 @@
 package com.salmane.core.ui;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.IntConsumer;
@@ -81,5 +82,28 @@ public class Menu {
         } while (!validation.test(string));
 
         return string;
+    }
+
+    protected List<String> promptStringList(String prompt, String delimiter, Predicate<String> validation) {
+        List<String> ids = new ArrayList<>();
+        boolean inputsValid = true;
+        do {
+            print(prompt);
+            String input = scanner.nextLine();
+            if (input != null && !input.isBlank()) {
+                for (String id : input.split(delimiter)){
+                    if (!validation.test(input)){
+                        print("Invalid input");
+                        inputsValid = false;
+                        break;
+                    } else {
+                        ids.add(id);
+                    }
+                }
+            }
+
+        } while (!inputsValid);
+
+        return ids;
     }
 }

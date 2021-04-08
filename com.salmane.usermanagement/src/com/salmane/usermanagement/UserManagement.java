@@ -10,7 +10,10 @@ import com.salmane.usermanagement.service.RoleService;
 import com.salmane.usermanagement.service.UserService;
 import com.salmane.usermanagement.ui.UserManagementMenu;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class UserManagement {
@@ -49,6 +52,9 @@ public class UserManagement {
                         break;
                     case 10:
                         showDeleteRole();
+                        break;
+                    case 11:
+                        showAssignRoles();
                         break;
                     default:
                         System.out.println("Invalid choice!");
@@ -149,6 +155,27 @@ public class UserManagement {
         } else {
             boolean deleted = this.roleService.delete(id);
             this.userManagementMenu.print(deleted ? "Role deleted successfully" : "Could not delete role");
+        }
+    }
+
+    private void showAssignRoles() {
+        String userId = this.userManagementMenu.askId();
+        Set<Role> newRoles = new HashSet<>();
+        List<String> newRoleIds = this.userManagementMenu.askRoleIds();
+
+        if (this.userService.get(userId).isPresent()) {
+            for (String roleId: newRoleIds) {
+                Optional<Role> optionalRole = this.roleService.get(roleId);
+                if (optionalRole.isEmpty()) {
+                    this.userManagementMenu.print("Role with id " + roleId + " not found!");
+                    break;
+                } else {
+                    newRoles.add(optionalRole.get());
+                }
+            }
+            this.userService.assignRoles(userId, newRoles);
+        } else {
+            this.userManagementMenu.print("User not found!");
         }
     }
 

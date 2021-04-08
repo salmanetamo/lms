@@ -84,4 +84,12 @@ public class UserManagementMenu extends Menu {
                     .forEach(this::print);
         }
     }
+
+    public List<String> askRoleIds() {
+        return this.promptStringList(
+                "Enter role ids below comma separated: ",
+                ",",
+                id -> !id.isBlank() && id.length() > 8
+        );
+    }
 }
